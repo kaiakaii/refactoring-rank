@@ -4,11 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "coverage": "nyc --reporter=html --reporter=text ava"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "chai": "^4.2.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
