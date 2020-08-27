@@ -318,3 +318,79 @@ rankTest('voyageProfitFactor case 3. should return true when captainHistoryRisk 
   const result = voyageProfitFactor(voyage, history);
   t.is(result, 7);
 });
+rankTest('voyageProfitFactor case 4. should return true when captainHistoryRisk given history length=18 and include china  and voyage  include china or east-indies', t => {
+  const voyage = {
+    zone: 'china',
+    length: 18,
+  };
+  const history = [
+    {
+      zone: 'north-africa',
+      profit: 7,
+    },
+    {
+      zone: 'china',
+      profit: 5,
+    },
+    {
+      zone: 'west-indies',
+      profit: 15,
+    }, {
+      zone: 'china',
+      profit: -1,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+    {
+      zone: 'west-indies',
+      profit: 15,
+    }, {
+      zone: 'west-indies',
+      profit: -1,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'west-indies',
+      profit: -1,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'west-indies',
+      profit: -1,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+    {
+      zone: 'west-indies',
+      profit: -1,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'west-indies',
+      profit: -1,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'west-indies',
+      profit: -1,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    }
+  ];
+  const result = voyageProfitFactor(voyage, history);
+  t.is(result, 8);
+});
