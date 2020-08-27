@@ -69,18 +69,83 @@ rankTest('hasChina case 2. should return true when hasChina given history no inc
   const result = hasChina(history);
   t.is(result,false);
 });
-rankTest('captainHistoryRisk case 1. should return true when captainHistoryRisk given history length=1 and history no include china', t => {
+rankTest('captainHistoryRisk case 1. should return true when captainHistoryRisk given history length=4 and history no include china', t => {
   const voyage = {
     zone: 'west-indies',
     length: 9,
   };
   const history = [
     {
-      zone: 'west-africa',
+      zone: 'north-africa',
       profit: 7,
+    },
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: 2,
     }
   ];
   const result = captainHistoryRisk(voyage, history);
   t.is(result,5);
 });
-
+rankTest('captainHistoryRisk case 2. should return true when captainHistoryRisk given history length=5 and history no include china', t => {
+  const voyage = {
+    zone: 'west-indies',
+    length: 9,
+  };
+  const history = [
+    {
+      zone: 'north-africa',
+      profit: 7,
+    },
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    }
+  ];
+  const result = captainHistoryRisk(voyage, history);
+  t.is(result,1);
+});
+rankTest('captainHistoryRisk case 3. should return true when captainHistoryRisk given history length=5 and profit<0 and history no include china', t => {
+  const voyage = {
+    zone: 'west-indies',
+    length: 9,
+  };
+  const history = [
+    {
+      zone: 'north-africa',
+      profit: 7,
+    },
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: -1,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    }
+  ];
+  const result = captainHistoryRisk(voyage, history);
+  t.is(result,2);
+});
