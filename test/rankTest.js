@@ -17,12 +17,20 @@ const history = [
     profit: 7,
   },
 ];
-rankTest('statement case 1. should return 0 when voyageRisk given voyage length = 4', t => {
+rankTest('statement case 1. should return 1 when voyageRisk given voyage length = 4', t => {
   const voyage = {
     zone: 'west-indies',
-    length: 0,
+    length: 4,
   };
   const result = voyageRisk(voyage);
   t.is(result,1);
+});
+rankTest('statement case 2. should return 3 when voyageRisk given voyage length = 8', t => {
+  const voyage = {
+    zone: 'west-indies',
+    length: 8,
+  };
+  const result = voyageRisk(voyage);
+  t.is(result,3);
 });
 
