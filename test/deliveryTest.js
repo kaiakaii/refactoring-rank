@@ -53,4 +53,22 @@ deliveryTest('deliveryDate case 3. should return date when deliveryDate given an
     let plusDay = new Date();
     plusDay.setDate(today.getDate() + 4)
     t.is(deliveryDate(anOrder, rush), plusDay.toLocaleDateString());
+});
+deliveryTest('deliveryDate case 4. should return date when deliveryDate given anOrder with MA state and not rush', t => {
+    const anOrder = {
+        'deliveryState': 'MA',
+        'placedOn': {
+            'plusDays': function (plusDays) {
+                let today = new Date();
+                let plusedDay = new Date();
+                plusedDay.setDate(today.getDate() + plusDays);
+                return plusedDay.toLocaleDateString();
+            }
+        }
+    }
+    const rush = false;
+    let today = new Date();
+    let plusDay = new Date();
+    plusDay.setDate(today.getDate() + 4)
+    t.is(deliveryDate(anOrder, rush), plusDay.toLocaleDateString());
 })
